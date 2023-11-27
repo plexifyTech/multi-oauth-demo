@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: Multi-OAuth-Demo
+  webflux:
+    base-path: /planner
+
+server:
+  port: ${PORT:8080}
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+github:
+  client:
+    id: ${GH_CLIENT_ID:your-github-client-id}
+    secret: ${GH_CLIENT_SECRET:your-github-client-secret}
+  auth:
+    redirect-url: http://localhost:3000
+
+aad:
+  client:
+    id: ${AAD_CLIENT_ID:your-ms-client-id}
+    secret: ${AAD_CLIENT_SECRET:your-ms-client-secret}
+    tenant-id: ${AAD_TENANT_ID:your-ms-tenant-id}
+  auth:
+    redirect-url: http://localhost:3000
+
+auth:
+  failure-url: http://localhost:3000
+  logout-success-url: http://localhost:3000
+
+cors:
+  allowed:
+    origin: http://localhost:3000/
